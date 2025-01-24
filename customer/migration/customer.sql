@@ -1,1 +1,0 @@
-git remote add origin https://github.com/mhthrh/x-bank-db.git
