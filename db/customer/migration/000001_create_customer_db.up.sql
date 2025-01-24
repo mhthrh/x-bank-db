@@ -3,7 +3,7 @@ create schema customer;
 CREATE TYPE ID_TYPE AS ENUM ('None', 'Card', 'Passport','GovernmentPaper');
 CREATE TYPE STATUS AS ENUM ('UnKnown', 'Active', 'Inactive','Banned','Expired','Deceased');
 
-CREATE TABLE TBL_CUSTOMER (
+CREATE TABLE CUSTOMER.TBL_CUSTOMER (
     ID UUID PRIMARY KEY,         -- UUID for ID field
     customer_id TEXT,             -- CustomerID as TEXT (you can use VARCHAR if needed)
     id_type ID_TYPE,              -- IdType as custom ENUM type
@@ -21,6 +21,6 @@ CREATE TABLE TBL_CUSTOMER (
     document TEXT                -- Document as TEXT
 );
 
-CREATE UNIQUE INDEX idx_unique_customer_id ON TBL_CUSTOMER (customer_id);
-CREATE UNIQUE INDEX idx_unique_customer_email ON TBL_CUSTOMER (email);
-CREATE UNIQUE INDEX idx_unique_customer_mobile ON TBL_CUSTOMER (mobile);
+CREATE UNIQUE INDEX idx_unique_customer_id ON CUSTOMER.TBL_CUSTOMER (customer_id);
+CREATE UNIQUE INDEX idx_unique_customer_email ON CUSTOMER.TBL_CUSTOMER(email);
+CREATE UNIQUE INDEX idx_unique_customer_mobile ON CUSTOMER.TBL_CUSTOMER (mobile);

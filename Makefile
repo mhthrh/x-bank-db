@@ -1,4 +1,4 @@
-dbConnection= postgres://admin_role:123456@localhost:5432?sslmode=disable
+dbConnection= postgres://admin_role:123456@localhost:5432/x_bank?sslmode=disable
 
 up:
 	docker-compose up -d
@@ -15,7 +15,7 @@ drop_db:
 	docker exec -it postgres_server psql -U root -c "drop database blue_bank with (force)"
 
 migrate_up:
-	migrate -path db/${db_name}/migration -database "$(dbConnection)" -verbose up 2
+	migrate -path db/${db_name}/migration -database "$(dbConnection)" -verbose up 1
 
 migrate_down:
 	migrate -path db/${db_service}/migration -database "$(dbConnection)" -verbose down 1
