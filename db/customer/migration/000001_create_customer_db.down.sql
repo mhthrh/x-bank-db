@@ -1,9 +1,8 @@
-DROP SCHEMA customer;
-DROP SCHEMA if exists tbl_cutomer;
-DROP TYPE IF EXISTS ID_TYPE;
-DROP TYPE IF EXISTS STATUS;
-DROP INDEX IF EXISTS idx_unique_customer_id CASCADE ;
-DROP INDEX IF EXISTS idx_unique_customer_email CASCADE ;
-DROP INDEX IF EXISTS idx_unique_customer_mobile CASCADE ;
-
+DROP TABLE if exists CUSTOMER.tbl_cutomer cascade;
+DROP INDEX IF EXISTS CUSTOMER.idx_unique_customer_id CASCADE ;
+DROP INDEX IF EXISTS CUSTOMER.idx_unique_customer_email CASCADE ;
+DROP INDEX IF EXISTS CUSTOMER.idx_unique_customer_mobile CASCADE ;
+DROP TYPE IF EXISTS CUSTOMER.STATUS cascade;
+DROP TYPE IF EXISTS CUSTOMER.ID_TYPE cascade;
+DROP SCHEMA CUSTOMER cascade ;
 
