@@ -1,13 +1,13 @@
 dbConnection= postgres://admin_role:123456@localhost:5432/x_bank?sslmode=disable
+IMAGE_NAME=db-server
+NETWORK_NAME=x-bank-net
 
-up:
-	docker-compose up -d
-
-stop:
-	docker-compose stop
-
-down:
-	docker-compose down
+network:
+	docker network create --driver bridge  $(NETWORK_NAME)
+build:
+	docker build --progress=plain -t $(IMAGE_NAME) .
+run: build
+	docker run --rm -p 5432:5432 -d --name $(IMAGE_NAME) --network  $(NETWORK_NAME) $(IMAGE_NAME)
 create_db:
 	docker exec -it postgres_server psql -U root -c "create database x_bank"
 
